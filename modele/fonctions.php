@@ -15,7 +15,9 @@
               // Appel au fichier permettant la connection � la BD
              require dirname(__FILE__)."/Connection.php";
              // Selection de la base de donn�es et requete SQL
-                $requete="select numero,nomAero as 'a1',dateDepart,heureDepart,nomAeroport as 'a2' ,dateArrivee,heureArrivee,prix from aeroport  join vol join aeroport2 on numAeroport=arrivee and numAero=depart where nomAero=(select nomAero from aeroport where numAero=depart) and nomAeroport=(select nomAeroport from aeroport2 where numAeroport=arrivee)";
+               $requete ="SELECT numero, a1.nomAero as a1, a2.nomAero as a2, depart, arrivee, dateDepart, dateArrivee, heureDepart, heureArrivee, prix "
+                       . "from vol, aeroport AS a1, aeroport AS a2 "
+                       . "WHERE depart = a1.numAero AND arrivee = a2.numAero";
             // Remplissage d'un tableau correspondant � chaque vol
                 $bdd= connect();
                 $i=0;
