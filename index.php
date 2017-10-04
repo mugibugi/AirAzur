@@ -40,7 +40,8 @@
                     break;
                 case 'confirmeReservation':
                     include("modele/fonctions.php");
-                    $reservations = validerReservation();
+                    $reservation = validerReservation();
+                    $numero = reserverVol();
                     include("vues/v_confirmeReservation.php");
                     break;
                     

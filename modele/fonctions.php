@@ -127,6 +127,8 @@
                 $reservation["nomClient"] =$nom;
                 $reservation["prenomClient"] =  $prenom;
                 $reservation["nbPlace"] =  $nbplace;
+                
+                return $reservation;
             }
                 // fonction qui initialise le panier
                 // le panier est un tableau indexé mis en session avec la clé "reservations"
@@ -139,7 +141,19 @@
             function ajouterAuPanier($reservation) {    
                    $_SESSION['reservations'][]= $reservation;
             }
-            
+            function creerReservation(){
+                require dirname(__FILE__). "/connection.php";
+                    // ouverture du fichier en écriture (mode w)
+
+                    if ($connexion)
+                    {
+                         // connexion réussie
+                         mysql_select_db("airazur",$connexion);
+
+                         $requete="INSERT INTO reservation
+                                   VALUES('','$reservation[numero]','".htmlspecialchars($reservation['nom'])."','".htmlspecialchars($reservation['prenom'])."','$reservation[NBvoyageur])";   
+                     }
+ }        
          ?>
         
     </body>

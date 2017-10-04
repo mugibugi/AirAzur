@@ -1,6 +1,7 @@
 <html>
 <div id="contenu">
     <form method="post" action= index.php?action=confirmeReservation>
+        <input type='hidden' value='AIR5007' name='numero'>
         <fieldset>
             <legend>Reservation du vol  <?php echo $numero ?> </legend>
             <label for="nom">Nom</label>
@@ -21,12 +22,4 @@
             <input type="submit" value="Valider"  /> <INPUT TYPE="reset" NAME="nom" VALUE=" Annuler ">
 
         </div>
-            <?php
-                
-              /*  if(isset($_POST['submit']))
-                    extract($_POST);
-                    $bdd= connect();
-                    $requete = $bdd->prepare('INSERT INTO reservation(nom, prenom)VALUES(:nom,:prenom)');
-                    $requete->execute();*/
-            ?>
 </html>
