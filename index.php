@@ -34,11 +34,13 @@
                     include("vues/v_voirVols.php");
                     break;
                 case 'form':
-                    /*$numero = reserverVol();*/
+                    include("modele/fonctions.php");
+                    $numero = reserverVol();
                     include("vues/formulaire.php");
                     break;
                 case 'confirmeReservation':
-                    validerReservation();
+                    include("modele/fonctions.php");
+                    $reservations = validerReservation();
                     include("vues/v_confirmeReservation.php");
                     break;
                     

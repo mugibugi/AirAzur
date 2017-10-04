@@ -105,18 +105,18 @@
             return $reservations;
             }
             
-            /*function reserverVol() {
+            function reserverVol() {
                 // récup numéro vol
                 $numero = $_REQUEST["numero"];
                 return $numero;
-            }*/
+            }
             
             function validerReservation(){
                 $reservation = array();
                 
                  require dirname(__FILE__)."/Connection.php";
                  
-                 $requete = 'INSERT INTO reservation(nom, prenom, '
+                
                 // récupération du numéro
                 $numero = $_REQUEST["numero"];
                 $nom = $_REQUEST["nom"];
@@ -126,7 +126,18 @@
                 $reservation["numero"] =  $numero;
                 $reservation["nomClient"] =$nom;
                 $reservation["prenomClient"] =  $prenom;
-                $reservation["nbplace"] =  $nbplace;
+                $reservation["nbPlace"] =  $nbplace;
+            }
+                // fonction qui initialise le panier
+                // le panier est un tableau indexé mis en session avec la clé "reservations"
+            function initPanier() {
+                    if(!isset($_SESSION['reservations']))
+                    $_SESSION['reservations']= array();
+            }
+
+                // fonction qui ajoute une réservation au panier
+            function ajouterAuPanier($reservation) {    
+                   $_SESSION['reservations'][]= $reservation;
             }
             
          ?>

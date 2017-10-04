@@ -1,7 +1,4 @@
-<?php
-  $numero = $_REQUEST ['numero']
-  
- ?><html>
+<html>
 <div id="contenu">
     <form method="post" action= index.php?action=confirmeReservation>
         <fieldset>
