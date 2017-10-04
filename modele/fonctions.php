@@ -133,18 +133,18 @@
                 // fonction qui initialise le panier
                 // le panier est un tableau indexé mis en session avec la clé "reservations"
             function initPanier() {
-                    if(!isset($_SESSION['reservations']))
-                    $_SESSION['reservations']= array();
+                    if(!isset($_SESSION['reservation']))
+                    $_SESSION['reservation']= array();
             }
 
                 // fonction qui ajoute une réservation au panier
             function ajouterAuPanier($reservation) {    
-                   $_SESSION['reservations'][]= $reservation;
+                   $_SESSION['reservation'][]= $reservation;
             }
             function creerReservation(){
                 require dirname(__FILE__). "/connection.php";
                     // ouverture du fichier en écriture (mode w)
-
+                
                     if ($connexion)
                     {
                          // connexion réussie
@@ -153,6 +153,17 @@
                          $requete="INSERT INTO reservation
                                    VALUES('','$reservation[numero]','".htmlspecialchars($reservation['nom'])."','".htmlspecialchars($reservation['prenom'])."','$reservation[NBvoyageur])";   
                      }
+                     try 
+                    {	
+                        $sql = $bdd->prepare($requete);
+                        $sql->execute();
+                   
+                    
+                    }
+                    catch(PDOException $e)
+                    {
+                        echo "Erreur dans la requ�te" . $e->getMessage();
+                    }
  }        
          ?>
         

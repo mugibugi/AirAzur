@@ -42,6 +42,7 @@
                     include("modele/fonctions.php");
                     $reservation = validerReservation();
                     $numero = reserverVol();
+                    $resa = creerReservation();
                     include("vues/v_confirmeReservation.php");
                     break;
                     
