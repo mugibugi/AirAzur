@@ -38,7 +38,9 @@
                     include("vues/formulaire.php");
                     break;
                 case 'confirmeReservation':
+                    validerReservation();
                     include("vues/v_confirmeReservation.php");
+                    break;
                     
             }
 

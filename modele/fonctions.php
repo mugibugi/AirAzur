@@ -111,6 +111,24 @@
                 return $numero;
             }*/
             
+            function validerReservation(){
+                $reservation = array();
+                
+                 require dirname(__FILE__)."/Connection.php";
+                 
+                 $requete = 'INSERT INTO reservation(nom, prenom, '
+                // récupération du numéro
+                $numero = $_REQUEST["numero"];
+                $nom = $_REQUEST["nom"];
+                $prenom = $_REQUEST["prenom"];
+                $nbplace = $_REQUEST["NBvoyageur"];
+                
+                $reservation["numero"] =  $numero;
+                $reservation["nomClient"] =$nom;
+                $reservation["prenomClient"] =  $prenom;
+                $reservation["nbplace"] =  $nbplace;
+            }
+            
          ?>
         
     </body>
