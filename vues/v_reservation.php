@@ -22,6 +22,7 @@
                         <th>Mail</th>
                         <th>Adresse</th>
                         <th>Nombre de places</th>
+                        <th>PDF</th>
                     </tr>
                     <tr>
                         <td>$nomClient</td>
@@ -30,7 +31,7 @@
                         <td>$mail</td>
                         <td>$adresse</td>
                         <td>$qdPlace</td>
-                        <td>pdf</td>
+                        <td><img src='images/pdf.png'></td>
                     </tr>
                 </table>";
             }
