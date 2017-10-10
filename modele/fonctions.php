@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <html>
     <head>
         <meta charset="ISO-8859-1">
@@ -82,6 +85,7 @@
                     { 
                         
                         $uneResa[$i]= [
+                            "NUMRESA"=>$ligne->NUMRESA,
                             "nomClient"=>$ligne->nomClient,
                             "prenomClient"=>$ligne->prenomClient,
                             "numero"=>$ligne->numVol,
@@ -159,7 +163,7 @@
             function creerReservation($reservation){
                 
                 
-                echo  $reservation["numero"] ;
+                //echo  $reservation["numero"] ;
                
                     // ouverture du fichier en écriture (mode w)
                 
@@ -167,7 +171,7 @@
                          // connexion réussie
                         
                          $requete="INSERT INTO reservation(NUMRESA,numVol, nomClient, prenomClient, mail, adresse, nbPlace) VALUES(NULL,'".$reservation['numero']."','".$reservation['nomClient']."', '".$reservation['prenomClient']."', '".$reservation['mail']."', '".$reservation['adresse']."', '".$reservation['nbPlace']."')";
-                       echo $requete;       
+                            
                     
                      try 
                     {	
@@ -182,7 +186,31 @@
                     {
                         echo "Erreur dans la requ�te" . $e->getMessage();
                     }
- }        
+            }   
+            function getLesReservation(){
+                
+                require dirname(__FILE__)."/Connection.php";
+                $requete="select NUMRESA from reservation ";
+                
+                $bdd = connect();
+                
+                try 
+                {	
+                    $sql = $bdd->prepare($requete);
+                    $sql->execute();
+                   
+                    
+                }
+                catch(PDOException $e)
+                {
+                    echo "Erreur dans la requ�te" . $e->getMessage();
+                }
+                
+                
+                
+                return $indice;
+                
+            }
          ?>
         
     </body>

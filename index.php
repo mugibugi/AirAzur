@@ -44,7 +44,11 @@
                     $numero = reserverVol();
                     include("vues/v_confirmeReservation.php");
                     break;
+                case 'pdfReservation':
+                    include("modele/fonctions.php");
                     
+                    include("test/test_pdf_2.php");
+                    break;
             }
 
             // vue qui cr�e le pied de page
