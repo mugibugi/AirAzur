@@ -189,27 +189,12 @@ session_start();
             }   
             function getLesReservation(){
                 
-                require dirname(__FILE__)."/Connection.php";
-                $requete="select NUMRESA from reservation ";
-                
-                $bdd = connect();
-                
-                try 
-                {	
-                    $sql = $bdd->prepare($requete);
-                    $sql->execute();
-                   
-                    
-                }
-                catch(PDOException $e)
-                {
-                    echo "Erreur dans la requ�te" . $e->getMessage();
-                }
-                
-                
-                
+               $indice = $_SESSION["NUMRESA"];
                 return $indice;
                 
+            }
+            function  creerPdfReservation($reservation){
+                include('../vues/pdf_reservation.php');
             }
          ?>
         

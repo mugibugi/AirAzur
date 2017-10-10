@@ -46,8 +46,9 @@
                     break;
                 case 'pdfReservation':
                     include("modele/fonctions.php");
-                    
-                    include("test/test_pdf_2.php");
+                    $indice = getLesReservation();
+                    include("vues/pdf_reservation.php");
+                    $pdf = creerPdfReservation();
                     break;
             }
 
